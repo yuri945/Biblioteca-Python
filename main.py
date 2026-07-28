@@ -29,6 +29,8 @@ def listarLivros():
             print(f"Autor: {livro['autor']}")
             print(f"Ano: {livro['ano']}")
             print("-" * 30)
+
+def buscarLivro():
   
 
 def menu ():
@@ -51,7 +53,7 @@ while True:
         cadastrarLivro()
 
     elif opcao == "2":
-        print("\n🚧 Função ainda não implementada.\n")
+        listarLivros()
 
     elif opcao == "3":
         print("\n🚧 Função ainda não implementada.\n")
