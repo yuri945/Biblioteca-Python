@@ -3,7 +3,7 @@ livros = []
 
 
 def cadastrarLivro ():
-    titulo = input("Titulos:  ")
+    titulo = input("Titulo:  ")
     autor = input("Autor: ")
     ano = input("Ano: ")
 
@@ -32,17 +32,39 @@ def listarLivros():
 
 
 
-## Estou aqui ##
 def buscarLivro(): 
+    titulo = input("\n Digite o título do livro: ")
+
+    encontrou = False
+
+    for livro in livros:
+        if livro["titulo"].lower()==titulo.lower():
+            print("\n ----Livro Encontrado ----")
+            print(f"Título: {livro['titulo']}")
+            print(f"Autor: {livro['autor']}")
+            print(f"Ano: {livro['ano']}")
+
+            encontrou = True 
+            break
+
+    if not encontrou:
+        print("\n Livro não listado no catálogo")
+
+
+## Estou aqui ##
+def removerLivro():
     print("Função ainda não implementada.")
+
+
+
   
 
 def menu ():
     print("=" * 30)
-    print ('Sistema de Biblioteca')
+    print ("Sistema de Biblioteca")
     print("=" * 30)
-    print ('1 - Cadastrar Livros')
-    print ('2 - Listar Livros')
+    print ("1 - Cadastrar Livros")
+    print ("2 - Listar Livros")
     print("3 - Buscar Livros")
     print("4 - Remover Livros")
     print("0 - Sair")
@@ -60,7 +82,7 @@ while True:
         listarLivros()
 
     elif opcao == "3":
-        print("\n🚧 Função ainda não implementada.\n")
+        buscarLivro()
 
     elif opcao == "4":
         print("\n🚧 Função ainda não implementada.\n")
