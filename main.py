@@ -51,13 +51,25 @@ def buscarLivro():
         print("\n Livro não listado no catálogo")
 
 
-## Estou aqui ##
 def removerLivro():
-    print("Função ainda não implementada.")
+    titulo = input("\n Qual livro deseja remover?: ")
+
+    encontrou = False
+
+    for livro in livros:
+
+        if livro["titulo"].lower()==titulo.lower():
+            livros.remove(livro)
+
+            print("\n Livro removido com sucesso!\n")
+
+            encontrou = True
+            break
+
+    if not encontrou:
+        print("\nLivro não listado no catálogo.\n ")
 
 
-
-  
 
 def menu ():
     print("=" * 30)
@@ -85,7 +97,7 @@ while True:
         buscarLivro()
 
     elif opcao == "4":
-        print("\n🚧 Função ainda não implementada.\n")
+        removerLivro()
 
     elif opcao == "0":
         print("\nPrograma encerrado!")
