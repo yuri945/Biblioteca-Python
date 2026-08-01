@@ -33,12 +33,13 @@ def listarLivros():
 
 
 ## Estou aqui ##
-def buscarLivro():
+def buscarLivro(): 
+    print("Função ainda não implementada.")
   
 
 def menu ():
     print("=" * 30)
-    print ('Sistema de Biblioteca.')
+    print ('Sistema de Biblioteca')
     print("=" * 30)
     print ('1 - Cadastrar Livros')
     print ('2 - Listar Livros')
