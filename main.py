@@ -38,7 +38,7 @@ def buscarLivro():
     encontrou = False
 
     for livro in livros:
-        if livro["titulo"].lower()==titulo.lower():
+        if livro["titulo"].lower() == titulo.lower():
             print("\n ----Livro Encontrado ----")
             print(f"Título: {livro['titulo']}")
             print(f"Autor: {livro['autor']}")
@@ -58,7 +58,7 @@ def removerLivro():
 
     for livro in livros:
 
-        if livro["titulo"].lower()==titulo.lower():
+        if livro["titulo"].lower() == titulo.lower():
             livros.remove(livro)
 
             print("\n Livro removido com sucesso!\n")
@@ -70,6 +70,18 @@ def removerLivro():
         print("\nLivro não listado no catálogo.\n ")
 
 
+## Estou aqui  !!!
+def editarLivro():
+    titulo = input("\n Qual livro deseja editar?: ")
+
+    encontrou = False
+
+    for livro in livros:
+
+        if livro["titulo"].lower() == titulo.lower():
+            input("\n Que livro deseja editar?: \n")
+
+
 
 def menu ():
     print("=" * 30)
@@ -79,6 +91,7 @@ def menu ():
     print ("2 - Listar Livros")
     print("3 - Buscar Livros")
     print("4 - Remover Livros")
+    print("5 - Editar Livros")
     print("0 - Sair")
 
 
@@ -98,6 +111,9 @@ while True:
 
     elif opcao == "4":
         removerLivro()
+
+    elif opcao == "5":
+        editarLivro()
 
     elif opcao == "0":
         print("\nPrograma encerrado!")
