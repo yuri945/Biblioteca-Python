@@ -79,8 +79,33 @@ def editarLivro():
     for livro in livros:
 
         if livro["titulo"].lower() == titulo.lower():
-            input("\n Que livro deseja editar?: \n")
 
+            encontrou = True
+
+            print("\nLivro encontrado!")
+            print("1 - Título")
+            print("2 - Autor")
+            print("3 - Ano")
+
+            opcao = input("Escolha uma opção: ")
+
+            if opcao == "1":
+
+                novo_titulo = input("Novo título: ")
+                livro["titulo"] = novo_titulo
+
+            elif opcao == "2":
+
+                novo_autor = input("Novo Autor: ")
+                livro["autor"] = novo_autor
+
+            elif opcao == "3":
+
+                novo_ano = input("Novo ano: ")
+                livro["ano"] == novo_ano
+
+            else:
+                print("Opção indisponível")
 
 
 def menu ():
