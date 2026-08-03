@@ -1,3 +1,6 @@
+from database import criar_tabela
+
+criar_tabela()
 
 livros = []
 
@@ -70,7 +73,6 @@ def removerLivro():
         print("\nLivro não listado no catálogo.\n ")
 
 
-## Estou aqui  !!!
 def editarLivro():
     titulo = input("\n Qual livro deseja editar?: ")
 
