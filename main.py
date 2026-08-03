@@ -106,6 +106,12 @@ def editarLivro():
 
             else:
                 print("Opção indisponível")
+                return
+
+            print("Livro atualizado com sucesso!")
+
+        if not encontrou:
+            print("Livro não encontrado")
 
 
 def menu ():
