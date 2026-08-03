@@ -5,21 +5,31 @@ def cadastrarLivro ():
     autor = input("Autor: ")
     ano = input("Ano: ")
 
-    cursor.execute("""
-    INSERT INTO livros (titulo, autor, ano)
-    VALUES (?,?,?)
-    """,(titulo, autor, ano))
+    try: 
+        cursor.execute("""
+        INSERT INTO livros (titulo, autor, ano)
+        VALUES (?,?,?)
+        """,(titulo, autor, ano))
 
-    conexao.commit()
 
-    print("\n Livro cadastrado com sucesso! \n")
+        conexao.commit()
+
+        print("\n Livro cadastrado com sucesso! \n")
+
+    except Exception as erro:
+            print(f"Erro: {erro}")
 
 
 def listarLivros():
 
-    cursor.execute("SELECT * FROM livros")
+    try: 
+        cursor.execute("SELECT * FROM livros")
+        livros = cursor.fetchall()
 
-    livros = cursor.fetchall()
+    except Exception as erro:
+        print(f"Erro: {erro}")
+        return
+    
 
     if len(livros) == 0:
         print("\n Nenhum livro cadastrado até o momento.")
@@ -41,12 +51,18 @@ def buscarLivro():
 
     titulo = input("\n Digite o título do livro: ")
 
-    cursor.execute("""
-    SELECT * FROM livros 
-    WHERE titulo = ?
-    """, (titulo,))
+    try: 
+        cursor.execute("""
+        SELECT * FROM livros 
+        WHERE titulo = ?
+        """, (titulo,))
 
-    livro = cursor.fetchone()
+
+        livro = cursor.fetchone()
+
+    except Exception as erro:
+        print(f"Erro: {erro}")
+        return
 
     if livro:
         print("\n===== LIVRO ENCONTRADO =====")
@@ -65,23 +81,32 @@ def buscarLivro():
 def removerLivro():
     titulo = input("\n Qual livro deseja remover?: ")
 
-    cursor.execute("""
-    SELECT * FROM livros
-    WHERE titulo = ?
-    """, (titulo,))
-
-    livro = cursor.fetchone()
-
-    if livro:
-
+    try: 
         cursor.execute("""
-        DELETE FROM livros
+        SELECT * FROM livros
         WHERE titulo = ?
         """, (titulo,))
 
-        conexao.commit()
+        livro = cursor.fetchone()
 
-        print("\nLivro removido com sucesso!\n")
+    except Exception as erro:
+         print(f"Erro: {erro}")
+         return
+    
+    if livro:
+
+        try:
+            cursor.execute("""
+            DELETE FROM livros
+            WHERE titulo = ?
+            """, (titulo,))
+
+            conexao.commit()
+
+            print("\nLivro removido com sucesso!\n")
+
+        except Exception as erro:
+            print(f"Erro: {erro}")
 
     else:
         print("\nLivro não encontrado\n")
@@ -91,12 +116,17 @@ def editarLivro():
 
     titulo = input("\n Qual livro deseja editar?: ")
 
-    cursor.execute("""
-    SELECT * FROM livros
-    WHERE titulo = ?
-    """, (titulo,))
+    try:   
+        cursor.execute("""
+        SELECT * FROM livros
+        WHERE titulo = ?
+        """, (titulo,))
 
-    livro = cursor.fetchone()
+        livro = cursor.fetchone()
+
+    except Exception as erro:
+         print(f"Erro: {erro}")
+         return
 
     if not livro:
         print("\nLivro não encontrado\n")
@@ -124,7 +154,7 @@ def editarLivro():
         novo_autor = input("Digite o novo autor: ")
 
         cursor.execute ("""
-        UPDATE livros
+         UPDATE livros
         SET autor = ?
         WHERE titulo = ?
         """, (novo_autor, titulo))
@@ -133,6 +163,7 @@ def editarLivro():
 
         novo_ano = input("Digite o novo ano: ")
 
+  
         cursor.execute ("""
         UPDATE livros
         SET ano = ?
@@ -143,5 +174,10 @@ def editarLivro():
         print("\nOpção Invalida\n")
         return
 
-    conexao.commit()
+    try:
+        conexao.commit()
+
+    except Exception as erro:
+        print(f"Erro: {erro}")
+
     print("\nLivro atualizado com sucesso!\n")
