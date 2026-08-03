@@ -5,9 +5,9 @@ criar_tabela()
 
 
 def cadastrarLivro ():
-    titulo = input("Titulo:  ")
-    autor = input("Autor: ")
-    ano = input("Ano: ")
+    titulo = input("\nTitulo:")
+    autor = input("\nAutor: ")
+    ano = input("\nAno:")
 
     cursor.execute("""
     INSERT INTO livros (titulo, autor, ano)
