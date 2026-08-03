@@ -1,0 +1,10 @@
+def menu ():
+    print("=" * 30)
+    print ("Sistema de Biblioteca")
+    print("=" * 30)
+    print ("1 - Cadastrar Livros")
+    print ("2 - Listar Livros")
+    print("3 - Buscar Livros")
+    print("4 - Remover Livros")
+    print("5 - Editar Livros")
+    print("0 - Sair")
