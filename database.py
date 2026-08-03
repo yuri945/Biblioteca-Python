@@ -2,6 +2,8 @@ import sqlite3
 
 conexao = sqlite3.connect("biblioteca.db")  
 
+conexao.row_factory = sqlite3.Row
+
 cursor = conexao.cursor()
 
 def criar_tabela():
