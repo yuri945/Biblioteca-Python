@@ -11,7 +11,6 @@ def cadastrarLivro ():
         VALUES (?,?,?)
         """,(titulo, autor, ano))
 
-
         conexao.commit()
 
         print("\n Livro cadastrado com sucesso! \n")
@@ -41,7 +40,7 @@ def listarLivros():
     for livro in livros:
         print(f"ID: {livro[0]}")
         print(f"Titulo: {livro['titulo']}")
-        print(f"Autor: {livro['autor']}")
+        print(f"Autor: {livro['autor']}")   
         print(f"Ano: {livro['ano']}")
         print("-" * 30)
 
